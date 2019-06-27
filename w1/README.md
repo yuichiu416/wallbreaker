@@ -448,23 +448,23 @@ end
 
 ```
 def find_circle_num(m)
+    visited = Array.new(m.length, false)
     circle = 0
-    visited = Array.new(m.length, 0)
     for i in 0...m.length
-        # find friends from self, each person himself can be a new circle if he's not connected to everyone
-        if visited[i] == 0
-            dfs(m, visited, i)
-            circle += 1
+        for j in 0...m[i].length
+            if !visited[i] && m[i][j] == 1
+                dfs(m, visited, i)
+                circle += 1
+            end
         end
     end
     circle
 end
 
 def dfs(m, visited, i)
+    visited[i] = true
     for j in 0...m.length
-        # find based on the previous person's friend cycle
-        if m[i][j] == 1 && visited[j] == 0
-            visited[j] = 1
+        if !visited[j] && m[i][j] == 1
             dfs(m, visited, j)
         end
     end
@@ -478,30 +478,27 @@ end
 
 ```
 def num_islands(grid)
-    return 0 if grid.length < 1
+    island = 0
+    return 0 if grid.empty?
     m = grid.length
     n = grid[0].length
-    ctr = 0
     for i in 0...m
         for j in 0...n
-            if grid[i][j] == '1'
-                # all the previous islands will be removed, the new 1's will be a new island
+            if grid[i][j] == "1"
                 dfs(grid, i, j, m, n)
-                ctr += 1
+                island += 1
             end
         end
     end
-    ctr
+    island
 end
 
 def dfs(grid, i, j, m, n)
-    return if i < 0 || i == m || j < 0 || j == n || grid[i][j] != "1"
-    # clear the island we found
-    grid[i][j] = 0
-    dfs(grid, i + 1, j, m, n)
-    dfs(grid, i - 1, j, m, n)
-    dfs(grid, i, j + 1, m, n)
-    dfs(grid, i, j - 1, m, n)
+    grid[i][j] = "0"
+    dfs(grid, i - 1, j, m, n) if i - 1 >= 0 && grid[i - 1][j] == "1"
+    dfs(grid, i + 1, j, m, n) if i + 1 < m && grid[i + 1][j] == "1"
+    dfs(grid, i, j - 1, m, n) if j - 1 >= 0 && grid[i][j - 1] == "1"
+    dfs(grid, i, j + 1, m, n) if j + 1 < n && grid[i][j + 1] == "1"
 end
 ```
 
@@ -514,44 +511,41 @@ end
 ```
 def solve(board)
     return board if board.empty? || board.length < 2 || board[0].empty? ||board[0].length < 2
-
     m = board.length
     n = board[0].length
-
     for i in 0...m
         for j in 0...n
-            # start from the edge, mark all connected "O" to "*"
-            dfs(board, i, j, m, n) if board[i][j] == "O" && isEdge(i, j, m, n)
+            next if !isEdge?(i, j, m, n)
+            dfs(board, i, j, m, n) if board[i][j] == "O"
         end
     end
     
-    for i in 1...m - 1
-        for j in 1...n - 1
-            # mark all "O" to "X"
+    for i in 0...m
+        for j in 0...n
+            next if isEdge?(i, j, m, n)
             board[i][j] = "X" if board[i][j] == "O"
         end
     end
+    
     for i in 0...m
         for j in 0...n
-            # mark the "O" that connected to the edge back
             board[i][j] = "O" if board[i][j] == "*"
         end
     end
+   board         
 end
-
 
 def dfs(board, i, j, m, n)
-    return if i < 0 || i >= m || j < 0 || j >= n
-    board[i][j] = "*" if board[i][j] == "O"
+    board[i][j] = "*"
     
+    dfs(board, i - 1, j, m, n) if i - 1 >= 0 && board[i - 1][j] == "O"
     dfs(board, i + 1, j, m, n) if i + 1 < m && board[i + 1][j] == "O"
-    dfs(board, i - 1, j, m, n) if i - 1 > 0 && board[i - 1][j] == "O"
+    dfs(board, i, j - 1, m, n) if j - 1 >= 0 && board[i][j - 1] == "O"
     dfs(board, i, j + 1, m, n) if j + 1 < n && board[i][j + 1] == "O"
-    dfs(board, i, j - 1, m, n) if j - 1 > 0 && board[i][j - 1] == "O"
 end
 
-def isEdge(i, j, m, n)
-    return true if i == 0 || j == 0 || i == m - 1 || j == n - 1
-    false
+def isEdge?(i, j, m, n)
+    i == 0 || j == 0 || i == m - 1 || j == n - 1
 end
+    
 ```
