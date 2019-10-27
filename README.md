@@ -2,6 +2,7 @@
 wallbreaker assignments
 
 # W1 problems
+### Arrays
 **[905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)**
 
 [sort-arra-by-parity.rb](./w1/sort-arra-by-parity.rb)
@@ -14,6 +15,7 @@ wallbreaker assignments
 
 [flipping-an-image.rb](./w1/flipping-an-image.rb)
 
+### Basic Math
 **[728. Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers/)**
 
 [self-dividing-numbers.rb](./w1/self-dividing-numbers.rb)
@@ -34,6 +36,7 @@ wallbreaker assignments
 
 [power-of-two.rb](./w1/power-of-two.rb)
 
+### Simple string manipulation: 
 **[344. Reverse String](https://leetcode.com/problems/reverse-string/)**
 
 [reverse-string.rb](./w1/reverse-string.rb)
@@ -58,6 +61,7 @@ wallbreaker assignments
 
 [longest-common-prefix.rb](./w1/longest-common-prefix.rb)
 
+### Simple bitwise manipulation:
 **[476. Number Complement](https://leetcode.com/problems/number-complement/)**
 
 [number-complement.rb](./w1/number-complement.rb)
@@ -74,6 +78,7 @@ wallbreaker assignments
 
 [single-number.rb](./w1/single-number.rb)
 
+### Hashmaps and Sets:
 **[1. Two Sum](https://leetcode.com/problems/two-sum/)**
 
 [two-sum.rb](./w1/two-sum.rb)
@@ -82,6 +87,7 @@ wallbreaker assignments
 
 [valid-anagram.rb](./w1/valid-anagram.rb)
 
+### Union find:
 **[547. Friend Circles](https://leetcode.com/problems/friend-circles/)**
 
 [friend-circles.rb](./w1/friend-circles.rb)
