@@ -2,9 +2,51 @@ Greedy algorithms
 
 
 [860. Lemonade Change](https://leetcode.com/problems/lemonade-change)
+```ruby
+def lemonade_change(bills)
+    fives, tens = 0, 0
+    bills.each do |bill|
+        case bill
+            when 5
+                fives += 1
+            when 10
+                fives -= 1
+                tens += 1
+            else
+                if tens > 0
+                    tens -= 1
+                    fives -= 1
+                else
+                    fives -= 3
+                end
+        end
+        return false if fives < 0 || tens < 0
+    end
+    true
+end
+```
 
 
 [455. Assign Cookies](https://leetcode.com/problems/assign-cookies)
+```ruby
+def find_content_children(g, s)
+    g.sort!
+    s.sort!
+    gi = g.length - 1
+    si = s.length - 1
+    ans = 0
+    while gi >= 0 && si >= 0
+        if s[si] >= g[gi]
+            ans += 1
+            gi -= 1
+            si -= 1
+        else 
+            gi -= 1
+        end
+    end
+    ans
+end
+```
 
 
 [392. Is Subsequence](https://leetcode.com/problems/is-subsequence)
