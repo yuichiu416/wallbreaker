@@ -372,8 +372,34 @@ end
 ```
 
 [451. Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
+```ruby
+def frequency_sort(s)
+    hash = Hash.new(0)
+    s.each_char{ |c| hash[c] += 1}
+    hash = hash.sort_by{ |k, v| v }.reverse
+    ans = ""
+    hash.each{ |c, times| ans += c * times}
+    ans
+end
+```
 
 [645. Set Mismatch](https://leetcode.com/problems/set-mismatch/)
+```ruby
+def find_error_nums(nums)
+    arr = Array.new(nums.length+1, false)
+    arr[0] = true
+    res = []
+    nums.each do |i|
+        if arr[i]
+            res << i
+        else
+            arr[i] = true
+        end
+    end
+    res << arr.find_index(false)
+    res
+end
+```
 
 [726. Number of Atoms](https://leetcode.com/problems/number-of-atoms/)
 
@@ -381,6 +407,20 @@ end
 ## Tries
 
 [720. Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary)
+```ruby
+def longest_word(words)
+    words.sort!
+    built = []
+    ans = ""
+    words.each do |str|
+        if(str.length == 1 || built.include?(str[0...-1]))
+            ans = str.length > ans.length ? str : ans
+            built.push(str)
+        end
+    end
+    ans
+end
+```
 
 [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree)
 
