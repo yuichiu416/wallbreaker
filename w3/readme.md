@@ -50,7 +50,24 @@ end
 
 
 [392. Is Subsequence](https://leetcode.com/problems/is-subsequence)
-
+```ruby
+def is_subsequence(s, t)
+    si, ti = 0, 0
+    return true if s.length == 0
+    return false if t.length == 0
+    match = ""
+    while si < s.length && ti < t.length
+        if s[si] == t[ti]
+            match += s[si]
+            si += 1
+            ti += 1
+        else
+            ti += 1
+        end
+    end
+    match == s
+end
+```
 
 [452. Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons)
 
