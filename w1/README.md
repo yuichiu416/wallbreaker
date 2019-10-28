@@ -2,8 +2,6 @@
 ### week 1 assignments
 
 [905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)
-
-[sort-arra-by-parity.rb](./sort-arra-by-parity.rb)
 ```
 def sort_array_by_parity(a)
     return [] if a.length < 1
@@ -26,8 +24,6 @@ end
 
 ---
 [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)
-
-[transpose-matrix.rb](./transpose-matrix.rb)
 
 **Ruby one-liner**
 ```
@@ -53,8 +49,6 @@ end
 ---
 [832. Flipping an Image](https://leetcode.com/problems/flipping-an-image/)
 
-[flipping-an-image.rb](./flipping-an-image.rb)
-
 **Ruby one-liner**
 
 ```
@@ -76,8 +70,6 @@ end
 ---
 [728. Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers/)
 
-[self-dividing-numbers.rb](./self-dividing-numbers.rb)
-
 **Ruby one-liner**
 
 ```
@@ -92,8 +84,6 @@ end
 
 ---
 [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
-
-[fizz-buzz.rb](./fizz-buzz.rb)
 
 ```
 def fizz_buzz(n)
@@ -115,8 +105,6 @@ end
 
 ---
 [66. Plus One](https://leetcode.com/problems/plus-one/)
-
-[plus-one.rb](./plus-one.rb)
 
 **Ruby one-liner**
 
@@ -152,8 +140,6 @@ end
 
 ---
 [171. Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)
-
-[excel-sheet-column-number.rb](./excel-sheet-column-number.rb)
 ```
 def title_to_number(s)
     arr = [0] + ("A".."Z").to_a
@@ -170,8 +156,6 @@ end
 ---
 [231. Power of Two](https://leetcode.com/problems/power-of-two/)
 
-[power-of-two.rb](./power-of-two.rb)
-
 ```
 def is_power_of_two(n)
     return false if n < 1
@@ -185,8 +169,6 @@ end
 
 ---
 [344. Reverse String](https://leetcode.com/problems/reverse-string/)
-
-[reverse-string.rb](./reverse-string.rb)
 
 **Ruby one-liner**
 
@@ -212,8 +194,6 @@ end
 ---
 [520. Detect Capital](https://leetcode.com/problems/detect-capital/)
 
-[detect-capital.rb](./detect-capital.rb)
-
 ```
 def detect_capital_use(word)
     word == word.upcase || word == word.downcase || word == word.capitalize
@@ -222,8 +202,6 @@ end
 
 ---
 [557. Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)
-
-[reverse-words-in-a-string-iii.rb](./reverse-words-in-a-string-iii.rb)
 
 **Ruby one-liner**
 ```
@@ -262,8 +240,6 @@ end
 ---
 [345. Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/)
 
-[reverse-vowels-of-a-string.rb](./reverse-vowels-of-a-string.rb)
-
 ```
 def reverse_vowels(s)
     return s if s.length <= 1
@@ -288,8 +264,6 @@ end
 ---
 [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
 
-[longest-common-prefix.rb](./longest-common-prefix.rb)
-
 ```
 def longest_common_prefix(strs)
     ans = ""
@@ -303,8 +277,6 @@ end
 
 ---
 [476. Number Complement](https://leetcode.com/problems/number-complement/)
-
-[number-complement.rb](./number-complement.rb)
 
 ```
 def find_complement(num)
@@ -328,8 +300,6 @@ end
 
 ---
 [461. Hamming Distance](https://leetcode.com/problems/hamming-distance/)
-
-[hamming-distance.rb](./hamming-distance.rb)
 
 **Ruby one-liner**
 ```
@@ -356,8 +326,6 @@ end
 
 ---
 [868. Binary Gap](https://leetcode.com/problems/binary-gap/)
-
-[binary-gap.rb](./binary-gap.rb)
 ```
 def binary_gap(n)
     n = n.to_s(2)
@@ -378,8 +346,6 @@ end
 ---
 [136. Single Number](https://leetcode.com/problems/single-number/)
 
-[single-number.rb](./single-number.rb)
-
 ```
 def single_number(nums)
     hash = Hash.new(0)
@@ -390,8 +356,6 @@ end
 
 ---
 [1. Two Sum](https://leetcode.com/problems/two-sum/)
-
-[two-sum.rb](./two-sum.rb)
 
 **Ruby one-liner**
 
@@ -420,8 +384,6 @@ end
 ---
 [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
-[valid-anagram.rb](./valid-anagram.rb)
-
 **Ruby one-liner**
 ```
 def is_anagram(s, t)
@@ -442,8 +404,6 @@ end
 
 ---
 [547. Friend Circles](https://leetcode.com/problems/friend-circles/)
-
-[friend-circles.rb](./friend-circles.rb)
 
 
 ```
@@ -474,8 +434,6 @@ end
 ---
 [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
 
-[number-of-islands.rb](./number-of-islands.rb)
-
 ```
 def num_islands(grid)
     island = 0
@@ -505,8 +463,6 @@ end
 
 ---
 [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)
-
-[surrounded-regions.rb](./surrounded-regions.rb)
 
 ```
 def solve(board)
