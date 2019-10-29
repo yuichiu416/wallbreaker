@@ -70,7 +70,21 @@ end
 ```
 
 [452. Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons)
-
+```ruby
+def find_min_arrow_shots(points)
+    return 0 if points.length == 0
+    points.sort_by!{ |arr| arr[1]}
+    arrowCount = 1
+    arrowPos = points[0][1]
+    
+    for i in 0...points.length
+        next if arrowPos >= points[i][0]
+        arrowCount += 1
+        arrowPos = points[i][1]
+    end
+    arrowCount
+end
+```
 
 [763. Partition Labels](https://leetcode.com/problems/partition-labels)
 
