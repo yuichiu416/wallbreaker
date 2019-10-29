@@ -129,7 +129,13 @@ end
 
 
 [852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array)
-
+```ruby
+def peak_index_in_mountain_array(a)
+	for i in 1..a.size-2
+		return i if a[i] > a[i-1] && a[i] > a[i+1]
+	end
+end
+```
 Sorting
 
 
