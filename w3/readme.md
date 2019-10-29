@@ -165,6 +165,23 @@ end
 
 
 [56. Merge Intervals](https://leetcode.com/problems/merge-intervals)
+```ruby
+def merge(intervals)
+    return [] if !intervals || intervals.length == 0
+    
+    intervals.sort_by!{ |arr| arr[0]}
+    result = []
+    for interval in intervals
+        last_result = result[-1]
+        if last_result.nil? || interval[0] > last_result[1]
+            result.push(interval)
+        else
+            last_result[1] = interval[1] if interval[1] > last_result[1]
+        end
+    end
+    result
+end
+```
 
 Use sorting, not a multiset (you solved this problem using a multiset last week) 
 [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string)
