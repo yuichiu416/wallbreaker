@@ -87,6 +87,23 @@ end
 ```
 
 [763. Partition Labels](https://leetcode.com/problems/partition-labels)
+```ruby
+def partition_labels(s)
+    return nil if s.nil? || s.length == 0
+    map = Array.new(26)
+    ans = []
+    last, start = 0, 0
+    s.each_char.with_index{ |c, i| map[c.ord - "a".ord] = i}
+    s.each_char.with_index do |c, i|
+        last = [map[c.ord - "a".ord], last].max
+        if last == i
+            ans << last - start + 1
+            start = last + 1
+        end
+    end
+    ans
+end
+```
 
 Binary search
 
