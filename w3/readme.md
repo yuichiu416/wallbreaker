@@ -140,6 +140,14 @@ Sorting
 
 
 [242. Valid Anagram](https://leetcode.com/problems/valid-anagram)
+```ruby
+def is_anagram(s, t)
+    hash = Hash.new(0)
+    s.each_char{ |c| hash[c] += 1}
+    t.each_char{ |c| hash[c] -= 1}
+    hash.values.all?{ |v| v == 0}
+end
+```
 
 
 [561. Array Partition I](https://leetcode.com/problems/array-partition-i)
