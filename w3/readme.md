@@ -151,6 +151,17 @@ end
 
 
 [561. Array Partition I](https://leetcode.com/problems/array-partition-i)
+```ruby
+def array_pair_sum(nums)
+    nums.sort!
+    sum, i = 0, 0
+    while i < nums.length
+        sum += nums[i]
+        i += 2
+    end
+    sum
+end
+```
 
 
 [56. Merge Intervals](https://leetcode.com/problems/merge-intervals)
