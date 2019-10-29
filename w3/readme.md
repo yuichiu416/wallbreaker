@@ -109,6 +109,23 @@ Binary search
 
 
 [704. Binary Search](https://leetcode.com/problems/binary-search)
+```ruby
+def search(nums, target)
+    return -1 if nums.nil? || nums.length == 0
+    left, right = 0, nums.length - 1
+    while left <= right
+        mid = (left + right) / 2
+        if nums[mid] > target
+            right = mid - 1
+        elsif nums[mid] < target
+            left = mid + 1
+        else
+            return mid
+        end
+    end
+    -1
+end
+```
 
 
 [852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array)
