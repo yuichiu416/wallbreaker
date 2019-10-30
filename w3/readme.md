@@ -185,7 +185,42 @@ end
 
 Use sorting, not a multiset (you solved this problem using a multiset last week) 
 [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string)
+```ruby
+SIZE = 26
+def find_anagrams(s, p)
+    return [] if s.nil? || p.nil? || s.length < p.length
+    sLength = s.length
+    pLength = p.length
+    source = getCountingSort(p)
+    counting = getCountingSort(s[0...pLength])
+    anagrams = []
+    anagrams.push(0) if checkAnagram(source, counting)
+    
+    for i in 1...sLength
+        break if pLength + i - 1 >= sLength
+        counting[s[i - 1].ord - "a".ord] -= 1
+        counting[s[pLength + i - 1].ord - "a".ord] += 1
+        anagrams.push(i) if checkAnagram(source, counting)
+    end
+    anagrams
+end
 
+def getCountingSort(s)
+    return [] if s.nil?
+    counting = Array.new(SIZE, 0)
+    for c in s.split("")
+        counting[c.ord - "a".ord] += 1
+    end
+    counting
+end
+        
+def checkAnagram(source, counting)
+    for i in 0...SIZE
+        return false if source[i] != counting[i]
+    end
+    true
+end
+```
 Recursion and memoization: make sure you use memoization if applicable for the problems below
 
 
