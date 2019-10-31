@@ -1,6 +1,20 @@
 Linked lists
 
 [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list)
+```java
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
+        }
+        return newHead;
+    }
+}
+```
 
 [328. Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list)
 
