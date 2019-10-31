@@ -1,57 +1,57 @@
 Linked lists
 
-https://leetcode.com/problems/reverse-linked-list
+[206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list)
 
-https://leetcode.com/problems/odd-even-linked-list
+[328. Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list)
 
-https://leetcode.com/problems/reverse-nodes-in-k-group
+[25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group)
 
-https://leetcode.com/problems/lru-cache
+[146. LRU Cache](https://leetcode.com/problems/lru-cache)
 
 Hint: This one is a bit harder. You will need to use a doubly linked list and a hash map to get O(1) time complexity for both operations.
 
 Stacks
 
-https://leetcode.com/problems/baseball-game
+[682. Baseball Game](https://leetcode.com/problems/baseball-game)
 
-https://leetcode.com/problems/next-greater-element-i
+[496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i)
 
-https://leetcode.com/problems/valid-parentheses
+[20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 
-https://leetcode.com/problems/score-of-parentheses
+[856. Score of Parentheses](https://leetcode.com/problems/score-of-parentheses)
 
 Queues
 
-https://leetcode.com/problems/implement-stack-using-queues/
+[225. Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
 
-https://leetcode.com/problems/implement-queue-using-stacks/
+[232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 
-https://leetcode.com/problems/rotate-array
+[189. Rotate Array](https://leetcode.com/problems/rotate-array)
 
 Heaps
 
-https://leetcode.com/problems/top-k-frequent-elements
+[347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements)
 
-https://leetcode.com/problems/merge-k-sorted-lists
+[23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)
 
 Combinatorial generation
 
-https://leetcode.com/problems/subsets
+[78. Subsets](https://leetcode.com/problems/subsets)
 
-https://leetcode.com/problems/permutations
+[46. Permutations](https://leetcode.com/problems/permutations)
 
-https://leetcode.com/problems/combinations
+[77. Combinations](https://leetcode.com/problems/combinations)
 
-https://leetcode.com/problems/generate-parentheses
+[22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses)
 
-https://leetcode.com/problems/gray-code
+[89. Gray Code](https://leetcode.com/problems/gray-code)
 
 Backtracking
 
-https://leetcode.com/problems/combination-sum
+[39. Combination Sum](https://leetcode.com/problems/combination-sum)
 
-https://leetcode.com/problems/partition-equal-subset-sum
+[416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum)
 
-https://leetcode.com/problems/partition-to-k-equal-sum-subsets
+[698. Partition to K Equal Sum Subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets)
 
-https://leetcode.com/problems/sudoku-solver
+[37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver)
