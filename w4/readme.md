@@ -40,6 +40,92 @@ class Solution {
 [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group)
 
 [146. LRU Cache](https://leetcode.com/problems/lru-cache)
+```java
+class LRUCache {
+    class Node{
+        int key;
+        int value;
+        Node prev;
+        Node next;
+    }
+    
+    private int count;
+    private int capacity;
+    private Node head, tail;
+    private HashMap<Integer, Node> cache = new HashMap<Integer, Node>();
+    
+
+    public LRUCache(int capacity) {
+        this.count = 0;
+        this.capacity = capacity;
+        head = new Node();
+        tail = new Node();
+        head.prev = null;
+        head.next = tail;
+        tail.prev = head;
+        tail.next = null;
+    }
+    
+    public int get(int key) {
+        Node node = cache.get(key);
+        if(node == null)
+            return -1;
+        this.moveToHead(node);
+        return node.value;
+    }
+    
+    public void put(int key, int value) {
+        Node node = cache.get(key);
+        if(node == null){
+            Node newNode = new Node();
+            newNode.key = key;
+            newNode.value = value;
+            this.cache.put(key, newNode);
+            this.addNode(newNode);
+            
+            count++;
+            if(count > capacity){
+                Node tail = this.popTail();
+                this.cache.remove(tail.key);
+                count--;
+            }
+        } else{
+            node.value = value;
+            this.moveToHead(node);
+        }
+    }
+    
+    private void addNode(Node node){
+        node.prev = head;
+        node.next = head.next;
+        
+        head.next.prev = node;
+        head.next = node;
+    }
+    
+    private void removeNode(Node node){
+        Node prev = node.prev;
+        Node next = node.next;
+        
+        prev.next = next;
+        next.prev = prev;
+    }
+    
+    private void moveToHead(Node node){
+        this.removeNode(node);
+        this.addNode(node);
+    }
+    
+    private Node popTail(){
+        Node t = tail.prev;
+        this.removeNode(t);
+        return t;
+    }
+    
+    
+}
+
+```
 
 Hint: This one is a bit harder. You will need to use a doubly linked list and a hash map to get O(1) time complexity for both operations.
 
