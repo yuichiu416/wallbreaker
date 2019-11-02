@@ -50,3 +50,36 @@ class Solution {
     }
 }
 ```
+
+[445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
+
+```java
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        HashMap<Integer, Integer> m1 = new HashMap();
+        HashMap<Integer, Integer> m2 = new HashMap();
+        int i1 = 0, i2 = 0, carry = 0;
+        ListNode head = l1;
+        while(head != null){
+            m1.put(i1++, head.val);
+            head = head.next;
+        }
+        head = l2;
+        while(head != null){
+            m2.put(i2++, head.val);
+            head = head.next;
+        }
+        while(i1 > 0 || i2 > 0 || carry != 0){
+            int n1 = i1 > 0 ? m1.get(--i1) : 0;
+            int n2 = i2 > 0 ? m2.get(--i2) : 0;
+            int digit = (n1 + n2 + carry) % 10;
+            carry = (n1 + n2 + carry) / 10;
+            digit %= 10;
+            ListNode newNode = new ListNode(digit);
+            newNode.next = head;
+            head = newNode;
+        }
+        return head;
+    }
+}
+```
