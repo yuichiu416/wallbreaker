@@ -108,8 +108,7 @@ class Solution {
 [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 ```java
 class Solution {
-    int maxLength = 0;
-    String maxString = "";
+    int maxLength = 0, start = 0, end = 0;
         
     public String longestPalindrome(String s) {
         if(s == null || s.length() < 2)
@@ -118,7 +117,7 @@ class Solution {
             checkPalindrome(s, i, i);
             checkPalindrome(s, i, i + 1);
         }
-        return maxString;
+        return s.substring(start, end + 1);
     }
     
     private void checkPalindrome(String s, int left, int right){
@@ -127,7 +126,8 @@ class Solution {
                 return;
             if(maxLength < right - left + 1){
                 maxLength = right - left + 1;
-                maxString = s.substring(left, right + 1);
+                start = left;
+                end = right;
             }
             left--;
             right++;
