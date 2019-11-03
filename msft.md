@@ -308,3 +308,28 @@ public class TicTacToe {
     }
 }
 ```
+
+[138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
+```java
+class Solution {
+    public Node copyRandomList(Node head) {
+        if(head == null)
+            return head;
+        HashMap<Node, Node> map = new HashMap();
+        Node ptr = head;
+        while(ptr != null){
+            Node clone = new Node(ptr.val);
+            map.put(ptr, clone);
+            ptr = ptr.next;
+        }
+        ptr = head;
+        while(ptr != null){
+            Node clone = map.get(ptr);
+            clone.next = map.get(ptr.next);
+            clone.random = map.get(ptr.random);
+            ptr = ptr.next;
+        }
+        return map.get(head);
+    }
+}
+```
