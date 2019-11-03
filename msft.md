@@ -83,3 +83,24 @@ class Solution {
     }
 }
 ```
+
+[151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
+```java
+class Solution {
+    public String reverseWords(String s) {
+        if(s == null || s.length() == 0)
+            return s;
+        List<String> list = new ArrayList();
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == ' ')
+                continue;
+            int j = i;
+            while(j < s.length() && s.charAt(j) != ' ')
+                j++;
+            list.add(0, s.substring(i, j));
+            i = j;
+        }
+        return String.join(" ", list);
+    }
+}
+```
