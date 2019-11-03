@@ -182,3 +182,25 @@ class Solution {
     }
 }
 ```
+
+[22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
+```java
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> ans = new ArrayList();
+        helper(ans, n, "", 0, 0);
+        return ans;
+    }
+    
+    private void helper(List<String> ans, int max, String str, int open, int close){
+        if(str.length() == 2 * max){
+            ans.add(str);
+            return;
+        }
+        if(open < max)
+            helper(ans, max, str + "(", open + 1, close);
+        if(close < open)
+            helper(ans, max, str + ")", open, close + 1);
+    }
+}
+```
