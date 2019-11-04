@@ -333,3 +333,28 @@ class Solution {
     }
 }
 ```
+
+[443. String Compression](https://leetcode.com/problems/string-compression/)
+```java
+class Solution {
+    public int compress(char[] chars) {
+        if (chars == null || chars.length == 0)
+            return 0;
+        int idx = 0, left = 0, right = 0;
+        while(right < chars.length){
+            char c = chars[left];
+            chars[idx++] = chars[left];
+            
+            while(right < chars.length && c == chars[right])
+                right++;
+            int len = right - left;
+            if(len != 1){
+                for(char ch : String.valueOf(len).toCharArray())
+                    chars[idx++] = ch;
+            }
+            left = right;
+        }
+        return idx;
+    }
+}
+```
