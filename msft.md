@@ -358,3 +358,32 @@ class Solution {
     }
 }
 ```
+
+[186. Reverse Words in a String II](https://leetcode.com/problems/reverse-words-in-a-string-ii/)
+
+```java
+class Solution {
+    public void reverseWords(char[] s) {
+        if(s == null || s.length == 0)
+            return;
+        reverse(s, 0, s.length - 1);
+        for(int i = 0; i < s.length - 1; i++){
+            int j = i;
+            while(j + 1 < s.length && s[j + 1] != ' ')
+                j++;
+            reverse(s, i, j);
+            i = j + 1;
+        }
+    }
+    
+    private void reverse(char[] c, int start, int end){
+        while(start < end){
+            char temp = c[start];
+            c[start] = c[end];
+            c[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+```
