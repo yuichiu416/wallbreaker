@@ -409,3 +409,44 @@ public class Solution {
     }
 }
 ```
+
+[215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        if(nums.length == 1)
+            return nums[0];
+        int left = 0, right = nums.length - 1;
+        while(left <= right){
+            int pivotPos = quickSelect(nums, left, right, k);
+            int targetPos = nums.length - k;
+            if(pivotPos < targetPos)
+                left = pivotPos + 1;
+            else if(pivotPos > targetPos)
+                right = pivotPos - 1;
+            else
+                return nums[pivotPos];
+        }
+        return 0;
+    }
+    
+    private int quickSelect(int[] nums, int left, int right, int k){
+        int pivot = nums[left], pivotPos = right;
+        swap(nums, left, right--);
+        while(left <= right){
+            if(nums[left] <= pivot)
+                left++;
+            else
+                swap(nums, left, right--);
+        }
+        swap(nums, left, pivotPos);
+        return left;
+    }
+    private void swap(int[] nums, int left, int right){
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+    }
+}
+```
