@@ -525,3 +525,26 @@ class Solution {
     }
 }
 ```
+
+[1. Two Sum](https://leetcode.com/problems/two-sum/)
+
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, int[]> map = new HashMap();
+        
+        for(int i = 0; i < nums.length; i++){
+            int[] pair = new int[2];
+            if(map.containsKey(nums[i])){
+                map.get(nums[i])[1] = i;
+                return map.get(nums[i]);
+            }
+            else{
+                pair[0] = i;
+                map.put(target - nums[i], pair);
+            }
+        }
+        return null;
+    }
+}
+```
