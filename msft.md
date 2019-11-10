@@ -246,6 +246,7 @@ class Solution {
 [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 
 ```java
+// dp approach
 class Solution {
     public int maxSubArray(int[] nums) {
         if(nums.length == 1)
@@ -260,6 +261,27 @@ class Solution {
     }
 }
 ```
+
+```java
+// pointer approach
+class Solution {
+    public int maxSubArray(int[] nums) {
+        if(nums == null || nums.length < 1)
+            return 0;
+        int currentMax = nums[0];
+        int sums = 0;
+        for(int i = 0; i < nums.length; i++){
+            sums += nums[i];
+            if(sums > currentMax)
+                currentMax = sums;
+            if(sums < 0)
+                sums = 0;
+        }
+        return currentMax;
+    }
+}
+```
+
 
 [348. Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/)
 ```java
