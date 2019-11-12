@@ -548,3 +548,21 @@ class Solution {
     }
 }
 ```
+
+[535. Encode and Decode TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl/)
+```java
+public class Codec {
+    List<String> list = new ArrayList();
+    // Encodes a URL to a shortened URL.
+    public String encode(String longUrl) {
+        list.add(longUrl);
+        return String.valueOf(list.size() - 1);
+    }
+
+    // Decodes a shortened URL to its original URL.
+    public String decode(String shortUrl) {
+        int idx = Integer.valueOf(shortUrl);
+        return idx < list.size() ? list.get(idx) : "";
+    }
+}
+```
