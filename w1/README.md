@@ -35,9 +35,9 @@ end
 **Normal approach**
 ```
 def transpose(a)
-    ans = Array.new(a[i].length) {Array.new(a.length, [])}
+    ans = Array.new(a[0].length) {Array.new(a.length, [])}
 
-    for i in 0...a.legnth
+    for i in 0...a.length
         for j in 0...a[i].length
             ans[j][i] = a[i][j]
         end
@@ -72,13 +72,13 @@ end
 
 **Ruby one-liner**
 
-```
+```ruby
 def self_dividing_numbers(left, right)
-    (left..right).select{ |i| isValid(i)}
+    (left..right).select { |i| is_dividing_num(i) }
 end
 
-def isValid(n)
-    n.digits.all?{ |digit| digit != 0 && n % digit == 0}
+def is_dividing_num(n)
+    n.digits.none?{ |d| d == 0 || n % d != 0 }
 end
 ```
 

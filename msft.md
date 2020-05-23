@@ -136,6 +136,30 @@ class Solution {
 }
 ```
 
+```ruby
+def longest_palindrome(s)
+    return s if s.length <= 1
+    longest = [""]
+    for i in 0...s.length - 1
+        check_palindrome(s, i, i, longest)
+        check_palindrome(s, i, i + 1, longest)
+    end
+    longest[0]
+end
+
+def check_palindrome(str, l, r, longest)
+    while l >= 0 && r < str.length
+        break if str[l] != str[r]
+        l -= 1
+        r += 1
+    end
+    l += 1
+    r -= 1
+    longest[0] = str[l..r] if r - l + 1 > longest[0].length
+end
+
+```
+
 [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
 ```java
 class Solution {
