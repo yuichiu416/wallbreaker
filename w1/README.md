@@ -82,6 +82,7 @@ def is_dividing_num(n)
 end
 ```
 
+
 ---
 [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
 
