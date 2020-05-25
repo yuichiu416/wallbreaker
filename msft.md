@@ -456,6 +456,24 @@ public class Solution {
 }
 ```
 
+```ruby
+def search_matrix(matrix, target)
+    return false if !matrix || matrix.empty? || matrix[0].empty?
+    i = 0
+    j = matrix[0].length - 1
+    while i < matrix.length && j >= 0
+        if matrix[i][j] > target
+            j -= 1
+        elsif matrix[i][j] < target
+            i += 1
+        else
+            return true
+        end 
+    end
+    false
+end
+```
+
 [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 
 ```java
