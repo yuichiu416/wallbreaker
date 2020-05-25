@@ -506,3 +506,32 @@ def isEdge?(i, j, m, n)
 end
     
 ```
+
+
+[127. Word Ladder](https://leetcode.com/problems/word-ladder/)
+```ruby
+def ladder_length(begin_word, end_word, word_list)
+    return 0 if !word_list.include?(end_word)
+    set = Set.new(word_list)
+    queue = [[begin_word, 1]]
+    while !queue.empty?
+        current = queue.first[0]
+        level = queue.first[1]
+        return level if current == end_word
+        queue.shift()
+        for i in 0...current.length
+            left = current[0...i]
+            right = current[i + 1...current.length]
+            ("a".."z").each do |c|
+                next if c == current[i]
+                temp = left + c + right
+                if set.include?(temp)
+                    set.delete(temp)
+                    queue << [temp, level + 1]
+                end
+            end
+        end
+    end
+    0
+end
+```
