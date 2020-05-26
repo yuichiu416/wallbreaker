@@ -53,3 +53,19 @@ def inorder_traversal(root)
     ans
 end
 ```
+
+[98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+```ruby
+def is_valid_bst(root)
+    helper(root, Float::INFINITY, -Float::INFINITY)
+end
+
+def helper(root, max_val, min_val)
+    return true if root.nil?
+    if root.val <= min_val || root.val >=max_val
+        return false
+    else
+        return helper(root.left, root.val, min_val) && helper(root.right, max_val, root.val)
+    end
+end
+```
