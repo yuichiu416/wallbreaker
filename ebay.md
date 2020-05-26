@@ -41,3 +41,15 @@ def word_break(s, word_dict)
     dp[-1]
 end
 ```
+
+[94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+```ruby
+def inorder_traversal(root)
+    return [] if root.nil?
+    ans = []
+    ans += inorder_traversal(root.left)
+    ans << root.val
+    ans += inorder_traversal(root.right)
+    ans
+end
+```
