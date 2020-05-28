@@ -69,3 +69,34 @@ def helper(root, max_val, min_val)
     end
 end
 ```
+
+[227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)
+```ruby
+def calculate(s)
+    stack = []
+    num = 0
+    operators = "+-*/"
+    currentOperator = "+"
+    s.each_char.with_index do |c, i|
+        if /\d/.match(c)
+            num = num * 10 + c.to_i
+        end
+        if operators.include?(c) || i == s.length - 1
+            if currentOperator == "+"
+                stack.push(num)
+            elsif currentOperator == "-"
+                stack.push(-num)
+            elsif currentOperator == "*"
+                stack.push(stack.pop() * num)
+            elsif currentOperator == "/"
+                stack.push((stack.pop().to_f / num).truncate)
+            end
+            currentOperator = c
+            num = 0
+        end
+    end
+    sum = 0
+    stack.each{ |num| sum += num}
+    sum
+end
+```
