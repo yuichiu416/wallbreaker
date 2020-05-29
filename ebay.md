@@ -100,3 +100,22 @@ def calculate(s)
     sum
 end
 ```
+
+[3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+```ruby
+def length_of_longest_substring(s)
+    map = {}
+    max = 0
+    left, right = 0, 0
+    while left <= right && right < s.length
+        c = s[right]
+        if map[c]
+            left = [map[c] + 1, left].max
+        end
+        map[c] = right
+        max = [right - left + 1, max].max
+        right += 1
+    end
+    max
+end
+```
