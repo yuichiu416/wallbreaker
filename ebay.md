@@ -119,3 +119,63 @@ def length_of_longest_substring(s)
     max
 end
 ```
+
+[](https://leetcode.com/problems/3sum/)
+
+```ruby
+def three_sum(nums)
+    nums.sort!
+    ans = []
+    for i in 0...nums.length - 1
+        remaining = 0 - nums[i]
+        left = i + 1
+        right = nums.length - 1
+        if i == 0 || nums[i] != nums[i - 1]
+            while left < right
+                if nums[left] + nums[right] > remaining
+                    right -= 1
+                elsif nums[left] + nums[right] < remaining
+                    left += 1
+                else
+                    ans << [nums[i], nums[left], nums[right]]
+                    while left < right && nums[left] == nums[left + 1]
+                        left += 1
+                    end
+                    while left < right && nums[right] == nums[right - 1]
+                        right -= 1
+                    end
+                    left += 1
+                    right -= 1
+                end
+            end
+        end
+    end
+    ans
+end
+```
+
+[16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/)
+
+```ruby
+def three_sum_closest(nums, target)
+    nums.sort!
+    ans = Float::INFINITY
+    
+    for i in 0...nums.length - 1
+        left = i + 1
+        right = nums.length - 1
+        while left < right
+            sum = nums[i] + nums[left] + nums[right]
+            if sum > target
+                right -= 1
+            elsif sum < target
+                left += 1
+            else
+                return target
+            end
+            ans = sum if (sum - target).abs < (ans - target).abs
+        end
+    end
+    ans
+end
+```
