@@ -193,3 +193,18 @@ def remove_duplicates(nums)
     end
 end
 ```
+
+[27. Remove Element](https://leetcode.com/problems/remove-element/)
+
+```ruby
+def remove_element(nums, val)
+    i = 0
+    while i < nums.length
+        if nums[i] == val
+            nums.delete_at(i) 
+            next
+        end
+        i += 1
+    end
+end
+```
