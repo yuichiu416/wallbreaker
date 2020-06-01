@@ -179,3 +179,17 @@ def three_sum_closest(nums, target)
     ans
 end
 ```
+
+[26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+```ruby
+def remove_duplicates(nums)
+    i = 1
+    while i < nums.length
+        if nums[i] == nums[i - 1]
+            nums.delete_at(i)
+            next
+        end
+        i += 1
+    end
+end
+```
