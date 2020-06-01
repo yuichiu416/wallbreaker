@@ -208,3 +208,30 @@ def remove_element(nums, val)
     end
 end
 ```
+
+[31. Next Permutation](https://leetcode.com/problems/next-permutation/)
+
+```ruby
+def next_permutation(nums)
+    i = nums.length - 2
+    while i >= 0 && nums[i] >= nums[i + 1]
+        i -= 1 # find the first non-decending pivot
+    end
+    if i >= 0
+        j = nums.length - 1
+        while nums[j] <= nums[i]
+            j -= 1
+        end
+        nums[i], nums[j] = nums[j], nums[i]
+    end
+    reverse(nums, i + 1, nums.length - 1)
+end
+
+def reverse(nums, i, j)
+    while i < j
+        nums[i], nums[j] = nums[j], nums[i]
+        i += 1
+        j -= 1
+    end
+end
+```
