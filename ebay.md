@@ -264,3 +264,27 @@ def letter_combinations(digits)
     ans
 end
 ```
+[20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+
+```ruby
+def is_valid(s)
+    stack = []
+    left = "([{"
+    right = ")]}"
+    s.each_char do |c|
+        if left.include?(c)
+            stack << c
+        elsif right.include?(c)
+            return false if stack.empty?
+            last = stack[-1]
+            index = left.index(last)
+            if right[index] != c
+                return false
+            else
+                stack.pop()
+            end
+        end
+    end
+    stack.empty?           
+end
+```
