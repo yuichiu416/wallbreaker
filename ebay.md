@@ -288,3 +288,47 @@ def is_valid(s)
     stack.empty?           
 end
 ```
+[](https://leetcode.com/problems/generate-parentheses/)
+
+```ruby
+def generate_parenthesis(n)
+    ans = []
+    helper(n, "", 0, 0, ans)
+    ans
+end
+
+def helper(max, currentStr, left, right, ans)
+    if left + right == max * 2
+        ans << currentStr
+        return
+    end
+    return if left > max
+    
+    if left < max
+        helper(max, currentStr + "(", left + 1, right, ans)
+    end
+    if right < left
+        helper(max, currentStr + ")", left, right + 1, ans)
+    end
+    
+end
+```
+[28. Implement strStr()](https://leetcode.com/problems/implement-strstr/)
+
+```ruby
+def str_str(haystack, needle)
+    return 0 if needle == ""
+    i = 0
+    j = needle.length
+    while true
+        if haystack[i...i + needle.length] == needle
+            return i
+        elsif j >= haystack.length
+            return -1
+        end
+        i += 1
+        j += 1
+    end
+    -1
+end
+```
