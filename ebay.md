@@ -235,3 +235,32 @@ def reverse(nums, i, j)
     end
 end
 ```
+
+[17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+
+```ruby
+def letter_combinations(digits)
+    map = {}
+    map["2"] = "abc"
+    map["3"] = "def"
+    map["4"] = "ghi"
+    map["5"] = "jkl"
+    map["6"] = "mno"
+    map["7"] = "pqrs"
+    map["8"] = "tuv"
+    map["9"] = "wxyz"
+    ans = []
+    queue = [""]
+    for i in 0...digits.length
+        while queue[0].length == i
+            base = queue.shift()
+            map[digits[i]].each_char do |c|
+                str = base + c
+                queue << str
+                ans << str if str.length == digits.length
+            end
+        end
+    end
+    ans
+end
+```
