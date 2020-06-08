@@ -332,3 +332,32 @@ def str_str(haystack, needle)
     -1
 end
 ```
+
+[6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)
+
+```ruby
+def convert(s, num_rows)
+    ans = ""
+    i = 0
+    rows = Array.new(num_rows, "")
+    while i < s.length
+        row = 0
+        while row < num_rows && i < s.length
+            rows[row] += s[i]
+            i += 1
+            row += 1
+        end
+        row = num_rows - 2
+        while row >= 1 && i < s.length
+            rows[row] += s[i]
+            i += 1
+            row -= 1
+        end
+        row += 2
+    end
+    rows.each do |r|
+        ans += r
+    end
+    ans
+end
+```
