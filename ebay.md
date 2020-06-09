@@ -361,3 +361,16 @@ def convert(s, num_rows)
     ans
 end
 ```
+
+[49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+```ruby
+def group_anagrams(strs)
+    maps = {}
+    strs.each do |str|
+        sorted = str.split("").sort.join("")
+        maps[sorted] = [] if !maps[sorted]
+        maps[sorted] << str
+    end
+    maps.values
+end
+```
