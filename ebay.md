@@ -374,3 +374,30 @@ def group_anagrams(strs)
     maps.values
 end
 ```
+
+[347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+```ruby
+def top_k_frequent(nums, k)
+    map = Hash.new(0)
+    max = 0
+    nums.each do |n|
+        map[n] += 1
+        if map[n] > max
+            max = map[n]
+        end
+    end
+    count = Array.new(nums.length + 1) {Array.new}
+    map.each do |k, v|
+        count[v] << k
+    end
+    i = count.length - 1
+    ans = []
+    while ans.length < k
+        while !count[i].empty? && ans.length < k
+            ans << count[i].pop
+        end
+        i -= 1
+    end
+    ans
+end
+```
