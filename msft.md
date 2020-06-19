@@ -614,3 +614,23 @@ public class Codec {
     }
 }
 ```
+
+[1. Two Sum](https://leetcode.com/problems/two-sum/)
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] ans = new int[2];
+        Map<Integer, Integer> map = new HashMap();
+        for(int i = 0; i < nums.length; i++) {
+            if (map.get(nums[i]) != null) {
+                ans[0] = map.get(nums[i]);
+                ans[1] = i;
+                return ans;
+            } else {
+                map.put(target - nums[i], i);
+            }
+        }
+        return null;
+    }
+}
+```
