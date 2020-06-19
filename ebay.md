@@ -401,3 +401,47 @@ def top_k_frequent(nums, k)
     ans
 end
 ```
+
+
+[1. Two Sum](https://leetcode.com/problems/two-sum/)
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] ans = new int[2];
+        Map<Integer, Integer> map = new HashMap();
+        for(int i = 0; i < nums.length; i++) {
+            if (map.get(nums[i]) != null) {
+                ans[0] = map.get(nums[i]);
+                ans[1] = i;
+                return ans;
+            } else {
+                map.put(target - nums[i], i);
+            }
+        }
+        return null;
+    }
+}
+```
+
+[3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int left = 0, right = 0;
+        int max = 0;
+        Map<Character, Integer> map = new HashMap();
+
+        while (left <= right && right < s.length()) {
+            char c = s.charAt(right);
+            if (map.get(c) != null) {
+                left = Math.max(map.get(c) + 1, left);
+            }
+            map.put(c, right);
+        
+            max = Math.max(right - left + 1, max);
+            right++;
+        }
+        return max;
+    }
+}
+```
