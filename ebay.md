@@ -517,3 +517,26 @@ class Solution {
     }
 }
 ```
+[90. Subsets II](https://leetcode.com/problems/subsets-ii/)
+
+```java
+class Solution {
+    List<List<Integer>> ans = new ArrayList();
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        helper(nums, new ArrayList<Integer>(), 0);
+        return ans;
+    }
+    private void helper(int[] nums, List<Integer> current, int start) {
+        ans.add(new ArrayList(current));
+        for(int i = start; i < nums.length; i++){
+            if(i > start && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            current.add(nums[i]);
+            helper(nums, current, i + 1);
+            current.remove(current.size() - 1);
+        }
+    }
+}
+```
