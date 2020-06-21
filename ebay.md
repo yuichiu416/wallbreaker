@@ -540,3 +540,30 @@ class Solution {
     }
 }
 ```
+
+[46. Permutations](https://leetcode.com/problems/permutations/)
+
+```java
+class Solution {
+    List<List<Integer>> ans = new ArrayList();
+    public List<List<Integer>> permute(int[] nums) {
+        helper(nums, new ArrayList<Integer>(), 0);
+        return ans;
+    }
+    private void helper(int[] nums, List<Integer> current, int start) {
+        if (current.size() == nums.length) {
+            ans.add(new ArrayList(current));
+            return;
+        }
+        
+        for(int i = 0; i < nums.length; i++) {
+            if (current.contains(nums[i])){
+                continue;
+            }
+            current.add(nums[i]);
+            helper(nums, current, start + 1);
+            current.remove(current.size() - 1);
+        }
+    }
+}
+```
