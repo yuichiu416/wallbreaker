@@ -470,3 +470,30 @@ class Solution {
     }
 }
 ```
+[39. Combination Sum](https://leetcode.com/problems/combination-sum/)
+
+```java
+class Solution {
+    List<List<Integer>> ans = new ArrayList();
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        helper(candidates, target, new ArrayList<Integer>(), 0);
+        return ans;
+    }
+    private void helper(int[] candidates, int target, List<Integer> set, int start) {
+        if (target == 0) {
+            ans.add(new ArrayList(set));
+            return;
+        }
+        for(int i = start; i < candidates.length; i++) {
+            int newTarget = target - candidates[i];
+            if (newTarget >= 0) {
+                set.add(candidates[i]);
+                helper(candidates, newTarget, set, i);
+                set.remove(set.size() - 1);
+            }
+        }
+    }
+}
+```
