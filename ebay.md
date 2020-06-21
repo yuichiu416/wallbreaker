@@ -471,7 +471,6 @@ class Solution {
 }
 ```
 [39. Combination Sum](https://leetcode.com/problems/combination-sum/)
-
 ```java
 class Solution {
     List<List<Integer>> ans = new ArrayList();
@@ -493,6 +492,27 @@ class Solution {
                 helper(candidates, newTarget, set, i);
                 set.remove(set.size() - 1);
             }
+        }
+    }
+}
+```
+
+[78. Subsets](https://leetcode.com/problems/subsets/)
+
+```java
+class Solution {
+    List<List<Integer>> ans = new ArrayList();
+    public List<List<Integer>> subsets(int[] nums) {
+        helper(nums, new ArrayList<Integer>(), 0);
+        return ans;
+    }
+    
+    private void helper(int[] nums, List<Integer> current, int start) {
+        ans.add(new ArrayList(current));
+        for(int i = start; i < nums.length; i++) {
+            current.add(nums[i]);
+            helper(nums, current, i + 1);
+            current.remove(current.size() - 1);
         }
     }
 }
