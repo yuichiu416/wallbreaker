@@ -624,3 +624,36 @@ class Solution {
     }
 }
 ```
+
+[905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)
+
+```java
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        if (A == null || A.length < 2) {
+            return A;        
+        }
+        int left = 0, right = A.length - 1;
+        while (left < right) {
+            while(left < right && A[left] % 2 == 0) {
+                left++;
+            }
+            while(left < right && A[right] % 2 == 1) {
+                right--;
+            }
+            if (left >= right) {
+                break;
+            }
+            swap(A, left, right);
+            left++;
+            right--;
+        }
+        return A;
+    }
+    private void swap(int[] A, int l, int r) {
+        int temp = A[l];
+        A[l] = A[r];
+        A[r] = temp;
+    }
+}
+```
