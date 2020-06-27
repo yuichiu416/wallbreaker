@@ -657,3 +657,39 @@ class Solution {
     }
 }
 ```
+
+[20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+```java
+class Solution {
+    public boolean isValid(String s) {
+        List<Character> stack = new ArrayList();
+        String leftStr = "([{";
+        String rightStr = "}])";
+        if (s.length() % 2 != 0) {
+            return false;
+        }
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (leftStr.indexOf(c) != -1) {
+                stack.add(c);
+            } else {
+                if (stack.size() == 0) {
+                    return false;
+                }
+                char match = stack.remove(stack.size() - 1);
+                if (match == '(' && c == ')') {
+                    continue;
+                } else if (match == '[' && c == ']') {
+                    continue;
+                } else if(match == '{' && c == '}') {
+                    continue;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return stack.size() == 0;
+        
+    }
+}
+```
