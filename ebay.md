@@ -595,3 +595,32 @@ class Solution {
     }
 }
 ```
+
+[5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+
+```java
+class Solution {
+    String longest = "";
+    public String longestPalindrome(String s) {
+        for(int i = 0; i < s.length(); i++) {
+            helper(s, i, i);
+            helper(s, i, i + 1);
+        }
+        return longest;
+    }
+    private void helper(String s, int left, int right) {
+        while (left >= 0 && right < s.length()) {
+            if (s.charAt(left) != s.charAt(right)) {
+                break;
+            }
+            left--;
+            right++;
+        }
+        left++;
+        right--;
+        if (right - left + 1 > longest.length()) {
+            longest = s.substring(left, right + 1);
+        }
+    }
+}
+```
