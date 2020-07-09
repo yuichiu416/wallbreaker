@@ -693,3 +693,38 @@ class Solution {
     }
 }
 ```
+
+[131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)
+
+```java
+class Solution {
+    List<List<String>> ans = new ArrayList();
+    public List<List<String>> partition(String s) {
+        helper(s, new ArrayList<String>(), 0);
+        return ans;
+    }
+    private void helper(String s, List<String> tempList, int start) {
+        if (start == s.length()) {
+            ans.add(new ArrayList(tempList));
+            return;
+        }
+        for (int i = start; i < s.length(); i++) {
+            String sub = s.substring(start, i + 1);
+            if (isPalindrome(sub)) {
+                tempList.add(sub);
+                helper(s, tempList, i + 1);
+                tempList.remove(tempList.size() - 1);
+            }
+        }
+    }
+    private boolean isPalindrome(String s) {
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left++) != s.charAt(right--)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
